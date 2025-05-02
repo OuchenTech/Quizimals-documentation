@@ -60,7 +60,7 @@ Quizimals is an interactive educational app designed to help children learn anim
 
 ## 3. Getting Started
 
-1. Download the template from my [Ko-Fi shop]().
+1. Download the template from my [Ko-Fi shop](https://ko-fi.com/s/e59f5b48b6).
 2. Unzip the downloaded file to your preferred development directory
 3. Install the required dependencies (Python, Kivy, KivyMD, and sqlite3).
 4. Review the project structure and familiarize yourself with the core components.
