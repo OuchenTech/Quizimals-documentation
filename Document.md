@@ -387,19 +387,16 @@ The album feature allows players to:
    ```
 
 9. In `loadscreen.py`:
-    - Inside `lazy_load_screen function()`, add the new screen class to `screen_map` list.
-    ```python
-    from app.screens.quizscreens.desertscreen import DesertScreen
-    ```
-    
-    - Add the screen widget in `lazy_load_screen()` method:
+   
+    - Add the new screen widget in `lazy_load_screen()` method (In screen_mapping dict):
+   
     ```python
     'desert_screen': 'app.screens.quizscreens.desertscreen.DesertScreen',
     ```
     
-    - Increase the number of tasks in `self.total_tasks`
-    
-    - Create functions to load screen data of the new category:
+    - Create functions to load screen data of the new category (Mimic the functions of any quiz screen):
+
+   Example:
     ```python
     def load_desert_screen(self):
         # Loading desert screen
@@ -422,6 +419,20 @@ The album feature allows players to:
         self.update_progress()
         self.load_next_screen()
     ```
+    
+   - Inside `load_next_screen()`, add the `load` method of the new screen inside `screens` list and always before the last method in this list.
+  
+   Example:
+   ```
+   def load_next_screen(self):
+       screens = [
+            #rest of methods
+            self.load_desert_screen # Load screen function of the new screen
+            self.load_sea_screen # The last load screen in the list==> move to menu screen after the load ended
+        ]
+   ```
+   
+   - Increase the number of tasks in `self.total_tasks`
 
 ### 7.3 Album Configuration
 1. To ensure a new animal appears in the album:
